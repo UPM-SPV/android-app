@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_request_body">Esta aplicación requiere permisos de Bluetooth para poder funcionar</string>
+    <string name="permission_request_title">Acceso a Bluetooth</string>
+    <string name="permission_request_button">Otorgar permisos</string>
+
+    <string name="pairing_screen_nfc_title">Escaneando etiqueta...</string>
+    <string name="pairing_screen_nfc_body">Acerca la etiqueta de emparejamiento a la parte trasera de tu dispositivo</string>
+
+    <string name="pairing_screen_ble_title">Conectando...</string>
+    <string name="pairing_screen_ble_body">Asegúrate de que el dispositivo se encuentra en modo de emparejamiento</string>
+    <string name="pairing_screen_ble_step_attest">Autentificando dispositivo</string>
+    <string name="pairing_screen_ble_step_scan">Buscando dispositivo</string>
+    <string name="pairing_screen_ble_step_connect">Conectando al dispositivo</string>
+    <string name="pairing_screen_ble_step_pair">Vinculando dispositivo</string>
+
+    <string name="pairing_screen_nfc_error_title">Error NFC</string>
+    <string name="pairing_screen_nfc_error_retry">Reintentar</string>
+    <string name="pairing_screen_nfc_error_disabled">NFC desactivado</string>
+    <string name="pairing_screen_nfc_error_no_permission">La aplicación no tiene permiso para usar NFC</string>
+    <string name="pairing_screen_nfc_error_not_supported">Su dispositivo no soporta NFC</string>
+    <string name="pairing_screen_nfc_error_reading_tag">Error al leer etiqueta</string>
+    <string name="pairing_screen_nfc_error_unknown_tag">Etiqueta desconocida</string>
+
+    <string name="pairing_screen_ble_support_error_title">Error Bluetooth</string>
+    <string name="pairing_screen_ble_support_error_disabled">Bluetooth deshabilitado</string>
+    <string name="pairing_screen_ble_support_error_no_permission">La aplicación no tiene permiso para usar Bluetooth</string>
+    <string name="pairing_screen_ble_support_error_not_supported">Su dispositivo no soporta Bluetooth</string>
+    <string name="pairing_screen_ble_support_error_retry">Reintentar</string>
+
+    <string name="pairing_screen_ble_connect_error_title">Error de conexión</string>
+    <string name="pairing_screen_ble_connect_error_body">Error al conectar con su dispositivo</string>
+    <string name="pairing_screen_ble_connect_error_retry">Reintentar</string>
+
+    <string name="pairing_screen_ble_attest_error_title">Error de verificación</string>
+    <string name="pairing_screen_ble_attest_error_body">Su dispositivo ha fallado la prueba de autentificación. Asegúrese de usar un dispositivo genuino.</string>
+    <string name="pairing_screen_ble_attest_error_retry">Reintentar</string>
+
+    <string name="pairing_screen_done_title">Dispositivo añadido</string>
+    <string name="pairing_screen_done_button">Continuar</string>
+
+    <string name="dashboard_bottom_bar_pair_text">Vincular</string>
+    <string name="dashboard_bottom_bar_info_description">Información</string>
+    <string name="dashboard_bottom_bar_settings_description">Configuración</string>
+
+    <string name="dashboard_no_devices">No hay dispositivos vinculados</string>
+
+    <string name="dashboard_settings_title">Configuración</string>
+    <string name="dashboard_settings_friendly_name_description">Nombre</string>
+    <string name="dashboard_settings_sensors_title">Sensores</string>
+    <string name="dashboard_settings_delete_button_text">Eliminar</string>
+    <string name="dashboard_settings_save_button_text">Aplicar</string>
+    <string name="historical_granularity_picker_day">Día</string>
+    <string name="historical_granularity_picker_month">Mes</string>
+    <string name="historical_granularity_picker_year">Año</string>
+    <string name="historical_granularity_date_pick_button_description">Escoger fecha</string>
+    <string name="historical_time_filter_picker_confirm_button">Confirmar</string>
+    <string name="historical_title">Historial</string>
+    <string name="historical_chart_title_temperature">Temperatura</string>
+    <string name="historical_chart_title_humidity">Humedad</string>
+    <string name="historical_chart_title_luminosity">Luminosidad</string>
+    <string name="historical_chart_title_noise">Ruido</string>
+    <string name="historical_chart_title_voc">VOC</string>
+    <string name="historical_chart_no_data">Sin datos</string>
+    <string name="historical_time_filter_picker_title_month">Fecha</string>
+    <string name="historical_time_filter_picker_title_year">Fecha</string>
+    <string name="historical_export_data_button_description">Exportar datos</string>
+    <string name="data_export_date_header">Fecha</string>
+    <string name="data_export_date_temperature">Temperatura</string>
+    <string name="data_export_date_humidity">Humedad</string>
+    <string name="data_export_date_lux">Luminosidad</string>
+    <string name="data_export_date_decibels">Ruido</string>
+    <string name="data_export_date_voc">VOC</string>
+    <string name="data_export_intent_title">Exportar CSV</string>
+    <string name="data_export_intent_subject">Datos CSV exportados</string>
+    <string name="historical_update_available">Actualización disponible</string>
+    <string name="historical_update_button">Actualizar</string>
+    <string name="ota_title">Actualizando dispositivo a %s</string>
+    <string name="ota_step_connect_device">Conectando</string>
+    <string name="ota_step_download_dfu">Descargando actualización</string>
+    <string name="ota_step_upload_dfu">Actualizando dispositivo</string>
+    <string name="ota_done_title">Actualización exitosa</string>
+    <string name="ota_confirm_button">Completar</string>
+    <string name="ota_error_title">Error de actualización</string>
+    <string name="ota_error_connect">Error de conexión</string>
+    <string name="ota_error_download">Error descargando actualización</string>
+    <string name="ota_error_upload">Error al subir actualización</string>
+    <string name="ota_error_retry_button">Reintentar</string>
+    <string name="ota_status_connecting">Conectando</string>
+    <string name="ota_status_downloading">Descargando actualización</string>
+    <string name="ota_status_download_error">Error al descargar actualización</string>
+    <string name="ota_status_dfu_starting">Preparando actualización</string>
+    <string name="ota_status_dfu_updating">Actualizando dispositivo</string>
+    <string name="ota_status_dfu_validating">Verificando actualización</string>
+    <string name="ota_status_dfu_error">Error al actualizar el dispositivo</string>
+    <string name="ota_status_done">Actualización completa</string>
+    <string name="ota_button_retry">Reintentar</string>
+    <string name="ota_button_dismiss">Continuar</string>
+    <string name="ota_status_connection_error">Error de conexión</string>
+</resources>
