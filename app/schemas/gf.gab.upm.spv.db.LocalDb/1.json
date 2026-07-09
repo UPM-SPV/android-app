@@ -1,0 +1,106 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "d37255dc66d0260f7fbb58b4d4309d6b",
+    "entities": [
+      {
+        "tableName": "device_info",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`macAddress` TEXT NOT NULL, `friendlyName` TEXT NOT NULL, `serialNumber` TEXT NOT NULL, PRIMARY KEY(`macAddress`))",
+        "fields": [
+          {
+            "fieldPath": "macAddress",
+            "columnName": "macAddress",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "friendlyName",
+            "columnName": "friendlyName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serialNumber",
+            "columnName": "serialNumber",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "macAddress"
+          ]
+        }
+      },
+      {
+        "tableName": "sensor_data",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`macAddress` TEXT NOT NULL, `date` INTEGER NOT NULL, `temperatureCelsius` REAL, `humidityRh` REAL, `lux` REAL, `decibels` REAL, `vocRaw` INTEGER, PRIMARY KEY(`macAddress`, `date`), FOREIGN KEY(`macAddress`) REFERENCES `device_info`(`macAddress`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "macAddress",
+            "columnName": "macAddress",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "data.temperatureCelsius",
+            "columnName": "temperatureCelsius",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "data.humidityRh",
+            "columnName": "humidityRh",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "data.lux",
+            "columnName": "lux",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "data.decibels",
+            "columnName": "decibels",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "data.vocRaw",
+            "columnName": "vocRaw",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "macAddress",
+            "date"
+          ]
+        },
+        "foreignKeys": [
+          {
+            "table": "device_info",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "macAddress"
+            ],
+            "referencedColumns": [
+              "macAddress"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd37255dc66d0260f7fbb58b4d4309d6b')"
+    ]
+  }
+}
