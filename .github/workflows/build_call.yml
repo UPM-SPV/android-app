@@ -1,0 +1,67 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      use_prodkeys:
+        description: "Whether to sign this build with production keys"
+        type: boolean
+        required: true
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      JDK_VERSION: '26'
+
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CA_CRT: ${{ secrets.CA_CRT }}
+      KEYSTORE: ${{ secrets.KEYSTORE }}
+
+    steps:
+      - uses: actions/checkout@v7
+
+
+      - uses: actions/setup-java@v6
+        with:
+          distribution: 'temurin'
+          java-version: ${{ env.JDK_VERSION }}
+          cache: 'gradle'
+          cache-dependency-path: |
+            **/*.gradle*
+            **/gradle-wrapper.properties
+
+
+      - name: Compile app
+        run: |
+          cd ${{ github.workspace }}
+
+          if [[ "${{ inputs.use_prodkeys }}" == "true" ]]; then
+            sh config/keyimportgh.sh
+            echo "Using prodkeys"
+          else
+            sh config/keygen.sh
+            echo "Using dummy keys"
+          fi
+
+          sh config/caimportgh.sh
+          ./gradlew assembleRelease bundleRelease --no-daemon --configuration-cache
+
+          cp ./app/build/outputs/apk/release/app-release.apk spv.apk
+          cp ./app/build/outputs/bundle/release/app-release.aab spv.aab
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v7
+        with:
+          name: app-binaries
+          archive: false
+          path: ${{ github.workspace }}/spv.apk
+
+      - name: Upload AAB
+        uses: actions/upload-artifact@v7
+        with:
+          name: app-binaries
+          archive: false
+          path: ${{ github.workspace }}/spv.aab

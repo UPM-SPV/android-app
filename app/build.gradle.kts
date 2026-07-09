@@ -15,6 +15,16 @@ kotlin {
     }
 }
 
+fun versionIntFromSemver(version: String): Int {
+    val parts = version.split(".")
+    val major = parts.getOrNull(0)?.toIntOrNull() ?: 1
+    val minor = parts.getOrNull(1)?.toIntOrNull() ?: 0
+    val patch = parts.getOrNull(2)?.toIntOrNull() ?: 0
+    return major * 1000000 + minor * 1000 + patch;
+}
+
+val semverVersion = "0.1.0" // x-release-please-version
+
 android {
     namespace = "gf.gab.upm.spv"
     compileSdk {
@@ -27,8 +37,8 @@ android {
         applicationId = "gf.gab.upm.spv"
         minSdk = 33
         targetSdk = 37
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = versionIntFromSemver(semverVersion)
+        versionName = semverVersion
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
