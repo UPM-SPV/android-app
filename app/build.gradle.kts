@@ -23,7 +23,7 @@ fun versionIntFromSemver(version: String): Int {
     return major * 1000000 + minor * 1000 + patch;
 }
 
-val semverVersion = "0.1.0" // x-release-please-version
+val semverVersion = "1.0.0" // x-release-please-version
 
 android {
     namespace = "gf.gab.upm.spv"
