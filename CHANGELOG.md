@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/UPM-SPV/android-app/compare/v1.0.0...v1.0.1) (2026-11-16)
+
+
+### Bug fixes
+
+* prevent R8 from optimizing protobuf schemas away ([5a755b8](https://github.com/UPM-SPV/android-app/commit/5a755b8b386f7f1b8d41b3b97d237996532257ad))
+* sign app on debug mode ([864ba52](https://github.com/UPM-SPV/android-app/commit/864ba528446d9f0ee639d94694de3942fa1ba325))
+
 ## [1.0.0](https://github.com/UPM-SPV/android-app/compare/v0.1.0...v1.0.0) (2026-11-15)
 
 
