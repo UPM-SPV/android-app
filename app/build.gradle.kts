@@ -44,7 +44,7 @@ android {
     }
 
     signingConfigs {
-        create("release") {
+        create("local") {
             storeFile = file("../config/local/keystore.jks")
             keyAlias = "key"
             // Java keystores MUST have a password, even if the use case does not require it.
@@ -57,7 +57,7 @@ android {
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName("local")
 
             isMinifyEnabled = true
             isShrinkResources = true
@@ -66,6 +66,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            signingConfig = signingConfigs.getByName("local")
         }
     }
     compileOptions {
